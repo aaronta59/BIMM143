@@ -1,0 +1,88 @@
+---
+title: "BIMM143 Find-a-Gene Project"
+author: "Aaron Ta | A12766546 | acta@ucsd.edu"
+date: "2/12/2019"
+header-includes:
+   - \usepackage{placeins}
+output: pdf_document
+sansfont: Calibri Light
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## [Q1] 
+Tell me the name of a protein you are interested in. Include the species and the accession number. This can be a human protein or a protein from any other species as long as it's function is known. If you do not have a favorite protein, select human RBP4 or KIF11. Do not use beta globin as this is in the worked example report that I provide you with online.
+
+**Name:** NRN1 (neuritin 1)
+
+**Accession:** AAI58491
+
+**Species:** *Xenopus tropicalis*
+
+**Function:** Neuritin is a neurotrophic factor expressed by the developing nervous system. It promotes neuronal arborization and is associated with neurogenesis as well as adult neuronal plasticity.
+
+\FloatBarrier
+
+## [Q2]
+Perform a BLAST search against a DNA database, such as a database consisting of genomic DNA or ESTs. The BLAST server can be at NCBI or elsewhere. Include details of the BLAST method used, database searched and any limits applied (e.g. Organism). 
+
+See *Fig 1*.
+
+**Method:** NCBI tblastn 2.8.1
+
+**Database:** Expressed sequence tags (est)
+
+**Organism:** Include fish (taxid:7898), exclude *Danio rerio* (taxid:7955)
+
+* As a neurotrophic factor, neuritin is known to be found in vertebrates, and has been annotated in many mammalian species. *Danio rerio* was excluded due to its usage as a model organism in neurobiology, and thus its likely already pre-existing annotation.
+
+**Chosen Match:** DT227993.1, a 724 bp clone from *Pimephales promelas* adults (first result; *Fig 2*)
+
+* **E-Value:** 4e-58
+* **Query Score:** 81%
+* **Score:** 185
+* **Identities:** 71.79%
+
+![](bimm143_image1.png)
+
+![](bimm143_image2.png)
+
+\FloatBarrier
+
+## [Q3]
+
+**Chosen Sequence (Fig 2)**:
+
+* \>*P. promelas* protein (from BLAST result)
+
+* MGLTLSGRYISLFLAVQIAYLLQAVRAAGKCETVFKGFSDCLLHLGDNMANYPQELDEQENLKTICTYWD
+DFHSCATTALADCQEGATDLWEKLKKESRSLEFRGSLFELCAGGNGA
+
+**Name:** *Pimephales* neuritin
+
+**Species:** *Pimephales promelas* ('Fathead minnow')
+
+* *Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Actinopterygii; Neopterygii; Teleostei; Ostariophysi;
+            Cypriniformes; Cyprinidae; Pimephales.*
+
+\FloatBarrier
+
+## [Q4]
+
+See *Fig 3*.
+
+There are no 100% matches; the closest matches, however, are all to species in the carp family (*Cyrprinidae*), which *P. promelas* also belongs to. The results of this blastp search were not filtered specifically to include or exclude any species and were run against the *nr* database.
+
+Top alignment is a predicted neuritin-like homolog for *Cyprinus carpio* (*Fig 4*).
+
+* **E-Value:** 1e-77
+* **Query Score:** 100%
+* **Score:** 234
+* **Identity:** 94.87%
+
+![](bimm143_image3.png)
+
+![](bimm143_image4.png)
